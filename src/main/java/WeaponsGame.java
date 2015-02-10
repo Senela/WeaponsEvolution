@@ -37,8 +37,8 @@ public class WeaponsGame {
 
     public static void main(String[] args)
     {
-        Gamer gamerOne = new Gamer("张三", 10);
-        Gamer gamerTwo = new Gamer("李四", 5);
+        Gamer gamerOne = new Gamer("张三", 100, 8);
+        Gamer gamerTwo = new Gamer("李四", 100, 9);
         WeaponsGame weaponsGame = new WeaponsGame(gamerOne, gamerTwo, new  PrintStream(System.out));
 
         weaponsGame.play();

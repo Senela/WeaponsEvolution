@@ -14,8 +14,8 @@ public class WeaponsGameTest {
     @Test
     public void  should_one_gamer_will_die() {
 
-        Gamer gamerOne = new Gamer("张三", 10);
-        Gamer gamerTwo = new Gamer("李四", 5);
+        Gamer gamerOne = new Gamer("张三", 100, 8);
+        Gamer gamerTwo = new Gamer("李四", 100, 9);
         PrintStream out = mock(PrintStream.class);
 
         WeaponsGame weaponsGame = new WeaponsGame(gamerOne, gamerTwo, out);
@@ -24,5 +24,16 @@ public class WeaponsGameTest {
     }
 
 
+    @Test
+    public void should_print_detail_attack_info() {
 
+        Gamer gamerOne = new Gamer("张三", 100, 8);
+        Gamer gamerTwo = new Gamer("李四", 100, 9);
+        PrintStream out = mock(PrintStream.class);
+
+        WeaponsGame weaponsGame = new WeaponsGame(gamerOne, gamerTwo, out);
+        weaponsGame.play();
+
+
+    }
 }

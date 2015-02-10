@@ -1,7 +1,9 @@
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.PrintStream;
+import java.security.PublicKey;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -12,33 +14,38 @@ import static org.mockito.Mockito.verify;
  */
 public class GamerTest {
 
+    private Gamer gamerOne;
+    private Gamer gamerTwo;
+
+    @Before
+    public void setUp() {
+        gamerOne = new Gamer("张三", 100, 8);
+        gamerTwo = new Gamer("李四", 100, 8);
+    }
+
     @Test
     public void should_gamer_has_blood_value() {
-        Gamer gamerOne = new Gamer("gamer", 10);
+
         assertThat(gamerOne.getBloodValue()).isGreaterThan(0);
 
     }
 
     @Test
     public void should_gamer_has_name() {
-        Gamer gamer = new Gamer("gamer", 10);
-        assertThat(gamer.getName()).isEqualTo("gamer");
+
+        assertThat(gamerOne.getName()).isEqualTo("张三");
     }
 
     @Test
     public void should_gamer_has_attack_capability() {
-        Gamer gamerOne = new Gamer("one", 10);
-        Gamer gamerTwo = new Gamer("two", 10);
         gamerOne.attacked(gamerTwo);
 
         assertThat(gamerOne.getBloodValue()).isGreaterThan(gamerTwo.getBloodValue());
     }
 
     @Test
-    public void should_gamer_not_has_defense_capability(){
+    public void should_gamer_not_has_defense_capability() {
 
-        Gamer gamerOne = new Gamer("one", 10);
-        Gamer gamerTwo = new Gamer("two", 10);
         int bloodValue = gamerOne.getBloodValue();
         gamerOne.attacked(gamerTwo);
         int bloodValueAfterAttacked = gamerTwo.getBloodValue();

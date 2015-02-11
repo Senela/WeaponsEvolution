@@ -18,9 +18,9 @@ public class WeaponsGame {
 
         while (gamerOne.getBloodValue()>0 && gamerTwo.getBloodValue()>0)
         {
-            gamerOne.attacked(gamerTwo);
+            out.println( gamerOne.attack(gamerTwo) );
             if(gamerTwo.getBloodValue() >0)
-                gamerTwo.attacked(gamerOne);
+                out.println(gamerTwo.attack(gamerOne));
         }
 
         showLoser(gamerOne, gamerTwo);
@@ -37,8 +37,8 @@ public class WeaponsGame {
 
     public static void main(String[] args)
     {
-        Gamer gamerOne = new Gamer("张三", 100, 8);
-        Gamer gamerTwo = new Gamer("李四", 100, 9);
+        Gamer gamerOne = new Gamer("张三", 10, 8);
+        Gamer gamerTwo = new Gamer("李四", 20, 9);
         WeaponsGame weaponsGame = new WeaponsGame(gamerOne, gamerTwo, new  PrintStream(System.out));
 
         weaponsGame.play();

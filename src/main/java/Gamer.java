@@ -15,10 +15,13 @@ public class Gamer {
     }
 
 
-    public void attacked(Gamer gamerTwo)
+    public String attack(Gamer gamerTwo)
     {
         int blood = gamerTwo.getBloodValue()-attack;
         gamerTwo.bloodValue = blood;
+
+        String result = name+"攻击了"+gamerTwo.getName()+","+gamerTwo.getName()+"受到了"+attack+"点伤害,"+gamerTwo.getName()+"剩余生命："+gamerTwo.getBloodValue();
+        return result;
     }
 
     public int getBloodValue(){

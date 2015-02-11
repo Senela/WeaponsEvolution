@@ -38,7 +38,7 @@ public class GamerTest {
 
     @Test
     public void should_gamer_has_attack_capability() {
-        gamerOne.attacked(gamerTwo);
+        gamerOne.attack(gamerTwo);
 
         assertThat(gamerOne.getBloodValue()).isGreaterThan(gamerTwo.getBloodValue());
     }
@@ -47,8 +47,19 @@ public class GamerTest {
     public void should_gamer_not_has_defense_capability() {
 
         int bloodValue = gamerOne.getBloodValue();
-        gamerOne.attacked(gamerTwo);
+        gamerOne.attack(gamerTwo);
         int bloodValueAfterAttacked = gamerTwo.getBloodValue();
+        assertThat(bloodValue).isGreaterThan(bloodValueAfterAttacked);
+
+        bloodValue = gamerOne.getBloodValue();
+        gamerOne.attack(gamerTwo);
+        bloodValueAfterAttacked = gamerTwo.getBloodValue();
+        assertThat(bloodValue).isGreaterThan(bloodValueAfterAttacked);
+
+
+        bloodValue = gamerOne.getBloodValue();
+        gamerOne.attack(gamerTwo);
+        bloodValueAfterAttacked = gamerTwo.getBloodValue();
         assertThat(bloodValue).isGreaterThan(bloodValueAfterAttacked);
     }
 
